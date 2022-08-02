@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 
 import { motion } from "framer-motion";
 
@@ -12,52 +12,49 @@ import { useStateContext } from "../contexts/ContextProvider";
 
 
 const Calendar = () => {
-
     const {theme} = useStateContext();
 
-    const [valueCalendar,setValueCalendar] = useState({
-        day:false,
-        week: false,
-        month:false
-    })
-    
-    const [active, setActive] = useState({
+    const calendarRef = useRef();
 
-        day: false,
-        week: false,
-        month: true
-    })
+    const calendarApi = () => calendarRef.current?.getApi();
+    const [calendarType, setCalendarType] = useState("dayGridMonth");
 
-    const handleOnDay = () => {
-
-        setValueCalendar({day:true})
-        setActive({ day: true})
-        
-        
+    const onTodayClick = () => {
+        calendarApi().today();
     }
 
-       const handleOnWeek = () => {
-        setActive({ week: true})
-        setValueCalendar({week:true})
-  
-    }
+    const onCalendarTypeChange = (value) => {
+        setCalendarType(value);
 
-       const handleOnMonth = () => {
-        setActive({ month: true})
-        setValueCalendar({month:true})     
+        switch(value) {
+            case "dayGridMonth":
+                calendarApi().changeView("dayGridMonth");
+                break;
+            case "timeGridWeek":
+                calendarApi().changeView("timeGridWeek");
+                break;
+            case "timeGridDay":
+                calendarApi().changeView("timeGridDay");
+                break;
+            default:
+                throw Error("Invalid calendar view type");
+        }
     }
 
   return (
     <>
     <Header title="Calendar" description="Check out your schedule. "/> 
         <div className='flex justify-center items center pt-5 gap-3'>
-            <Button size="small"  variant={active.day ? "contained" : "outlined"} onClick={ handleOnDay }>           
+            <Button size="small" variant="outlined" onClick={onTodayClick}>
+                    Today
+            </Button>
+            <Button size="small"  variant={calendarType === "timeGridDay" ? "contained" : "outlined"} onClick={() => onCalendarTypeChange("timeGridDay")}>           
                     Day
             </Button>
-            <Button size="small" variant={active.week ? "contained" : "outlined"} onClick={ handleOnWeek} >
+            <Button size="small" variant={calendarType === "timeGridWeek" ? "contained" : "outlined"} onClick={() => onCalendarTypeChange("timeGridWeek")} >
                     Week
             </Button>
-            <Button size="small" variant={active.month ? "contained" : "outlined"} onClick={ handleOnMonth}>
+            <Button size="small" variant={calendarType === "dayGridMonth" ? "contained" : "outlined"} onClick={() => onCalendarTypeChange("dayGridMonth")}>
                     Month
             </Button>
 
@@ -71,15 +68,15 @@ const Calendar = () => {
                 <FullCalendar
                     style={{ color: theme.title}}
                     eventTextColor={theme.title}
-                    
+                    ref={calendarRef}
                     plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin ]}
                     headerToolbar={false}
-                    initialView= {valueCalendar.day ? "timeGridDay" : valueCalendar.week ? "dayGridWeek" : "dayGridMonth"}
+                    initialView={calendarType}
                     editable
                     selectable
                     selectMirror
                     dayMaxEvents
-                    weekends                       
+                    weekends
                 />
                 
             </motion.div>              

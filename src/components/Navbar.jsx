@@ -23,7 +23,7 @@ const Navbar = () => {
         window.addEventListener('resize', handleResize);
         handleResize();
         return () => window.removeEventListener('resize', handleResize);
-     }, []);
+     }, [setScreenSize]);
 
 
     useEffect(() => {
@@ -32,11 +32,11 @@ const Navbar = () => {
             } else {
             setActiveMenu(true);
             }
-    }, [screenSize]);
+    }, [screenSize, setActiveMenu]);
 
      const handleChange = (event) => {
         setChecked(event.target.checked);
-        { checked ?  setDark() : setLight() }
+        event.target.checked ?  setDark() : setLight();
     };
 
 
