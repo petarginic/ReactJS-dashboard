@@ -36,6 +36,6 @@ const Header = (props) => {
                 </div>
             </div>
         )
-        }
+    }
 
-        export default Header
+export default Header

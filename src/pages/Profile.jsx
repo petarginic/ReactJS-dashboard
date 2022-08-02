@@ -8,10 +8,8 @@ const Profile = () => {
   return (
     <>
      <Header title="Petar Ginic " description="Edit or add new information"/> 
-
         <PageContent>
             <div class="grid grid-cols-3 gap-4">
-
                 <div className="flex justify-center items-center ">
                     <CardUser 
                         title="Petar Ginic"
@@ -21,7 +19,7 @@ const Profile = () => {
                         image="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Image-File.png"
                     />
                 </div>
-
+                
                 <div className="col-span-2 flex justify-center items-center">
                     <Hero 
                         title="My completed"
@@ -30,8 +28,7 @@ const Profile = () => {
                         button1="All Courses"
                         button2="My Favorites"
                     />
-                </div>
-                
+                </div>           
             </div>
         </PageContent>
     </>

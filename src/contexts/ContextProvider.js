@@ -1,8 +1,6 @@
 import { createContext, useContext, useState } from "react";
 
-
 const StateContext = createContext();
-
 
 export const ContextProvider = ({children}) => {
 
@@ -33,7 +31,7 @@ export const ContextProvider = ({children}) => {
             setFavoriteCourses((prevFavoriteCourses) => { 
                 return prevFavoriteCourses.concat(course)
         })
-    }
+        }
 
         const removeFavoriteCourse = (courseID) => {
             setFavoriteCourses((prevFavoriteCourses) => { 
@@ -70,9 +68,7 @@ export const ContextProvider = ({children}) => {
                 theme,
                 setTheme,
                 setLight,
-                setDark,
-                themes
-                      
+                setDark                  
             }}
         >
             {children}

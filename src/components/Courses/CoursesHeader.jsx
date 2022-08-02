@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { motion } from "framer-motion";
-import { useStateContext } from "../../contexts/ContextProvider";
-
 import Typography from "@mui/material/Typography";
+
+import { useStateContext } from "../../contexts/ContextProvider";
 
 const CoursesHeader = (props) => {
 
@@ -12,7 +12,6 @@ const CoursesHeader = (props) => {
 
   return (
       <div className="flex justify-start content-center mt-12 ml-4" style={{ backgroundColor: theme.header}}>
-
             <div className="flex flex-col justify-center items-center sm:items-start" >
                 <Typography
                     component={motion.span}

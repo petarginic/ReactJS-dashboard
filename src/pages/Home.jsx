@@ -3,11 +3,10 @@ import Header from '../components/Header'
 import Hero from '../components/Hero'
 import PageContent from '../components/PageContent'
 
-
 const Home = () => {
   return (
     <>    
-        <Header title="Welcome back Petar Ginic" description=" Learn somenthing new every day! "/> 
+        <Header title="Welcome back Petar Ginic" description=" Learn somenthing new every day! "/>
         <PageContent>
             <Hero 
                 description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi cum cupiditate ducimus, fugit harum id necessitatibus odio quam quasi, quibusdam rem tempora voluptates. Cumque debitis dignissimos id quam vel!"
@@ -17,7 +16,6 @@ const Home = () => {
                 button2="Learn More"
             />
         </PageContent>
-
     </>
   )
 }

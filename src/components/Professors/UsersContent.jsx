@@ -26,12 +26,13 @@ const UsersContent = (props) => {
                     <ListItemAvatar >
                         <Avatar alt={item.message} src={item.image}  />
                     </ListItemAvatar>
+
                     <ListItemText
                         classes={{ root: 'm-0', primary: 'font-medium leading-5 truncate' }}
                         primary={`${item.name} `}
                         style={{ color: theme.text}}
                         secondary={
-                            <>
+                            <div>
                                 <Typography
                                     className="inline"
                                     component="span"
@@ -41,10 +42,10 @@ const UsersContent = (props) => {
                                 >
                                         {`${item.mail} `}
                                 </Typography>
-                            </>
+                            </div>
                         }
-                    />
-                    <Rating name="size-medium" defaultValue={item.rating}/>
+                    />                   
+                        <Rating name="size-medium" defaultValue={item.rating}/>
                 </ListItem>
 
                 <Divider  style={{ backgroundColor: theme.text}}/> 

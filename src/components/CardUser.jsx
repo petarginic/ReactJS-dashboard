@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -13,6 +12,7 @@ const CardUser = (props) => {
     }
 };
   return (
+
     <Card sx={{ maxWidth: 400  }}>
         <CardMedia
             component="img"
@@ -32,7 +32,7 @@ const CardUser = (props) => {
             </Typography>
         </CardContent>
          
-         <Typography className='min-h-[80%] '>
+         <Typography className='min-h-[80%]'>
                 <div className='border-b px-6 flex flex-row  justify-between border-gray-400 pt-5'>
                     <Typography variant="body2" color="text.secondary">
                         Status: 
@@ -40,7 +40,7 @@ const CardUser = (props) => {
                     <Button size="small">{props.status}</Button>
                 </div>
                 
-                <div className='border-b px-6 flex flex-row  justify-between border-gray-400 pt-5' >
+                <div className='border-b px-6 flex flex-row  justify-between border-gray-400 pt-5'>
                     <Typography variant="body2" color="text.secondary">
                         Member since: 
                     </Typography>

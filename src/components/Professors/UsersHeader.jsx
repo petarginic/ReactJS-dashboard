@@ -1,7 +1,7 @@
 import React from 'react'
-
 import { motion } from "framer-motion";
 import Typography from "@mui/material/Typography";
+
 import { useStateContext } from "../../contexts/ContextProvider";
 
 const UsersHeader = (props) => {
@@ -12,7 +12,6 @@ const UsersHeader = (props) => {
   return (
    
        <div className="flex justify-start content-center mt-12 ml-4" style={{ backgroundColor: theme.header}}>
-
             <div className="flex flex-col justify-center items-center sm:items-start" >
                 <Typography
                     component={motion.span}
@@ -32,8 +31,7 @@ const UsersHeader = (props) => {
                    <h3 className='text-2xl text-gray-400 mt-2 ' style={{ color: theme.title}}>{`${lengthOfUsers} professors`}</h3> 
                 </Typography >          
             </div>
-        </div>          
-        
+        </div>               
   )
 }
 

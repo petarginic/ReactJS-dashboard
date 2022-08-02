@@ -4,11 +4,8 @@ import React from 'react'
 import CastForEducationSharpIcon from '@mui/icons-material/CastForEducationSharp';
 import Tooltip from '@mui/material/Tooltip';
 import { MdOutlineCancel } from "react-icons/md";
-
-
-import { links } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
-
+import { links } from "../data/dummy";
 
 const Sidebar = () => {
 
@@ -67,7 +64,6 @@ const Sidebar = () => {
                 </div>
             </>
         )}
-
     </div>
   )
 }
